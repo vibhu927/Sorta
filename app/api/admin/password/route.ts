@@ -10,10 +10,17 @@ export async function POST(req: Request) {
   if (!newPassword || String(newPassword).length < 8) {
     return NextResponse.json({ error: "New password must be 8+ characters" }, { status: 400 });
   }
-  const admin = readJson<{ email: string; passwordHash: string }>("admin.json", { email: "", passwordHash: "" });
+  const admin = await readJson<{ email: string; passwordHash: string }>("admin.json", { email: "", passwordHash: "" });
   const ok = await bcrypt.compare(String(currentPassword || ""), admin.passwordHash || "");
   if (!ok) return NextResponse.json({ error: "Current password is wrong" }, { status: 401 });
   admin.passwordHash = await bcrypt.hash(String(newPassword), 10);
-  writeJson("admin.json", admin);
+  try {
+    await writeJson("admin.json", admin);
+  } catch (e) {
+    return NextResponse.json(
+      { error: (e as Error)?.message || "Could not save new password" },
+      { status: 500 }
+    );
+  }
   return NextResponse.json({ ok: true });
 }

@@ -10,7 +10,7 @@ export async function GET(req: Request) {
   if (!(FILES as readonly string[]).includes(file)) {
     return NextResponse.json({ error: "Unknown file" }, { status: 400 });
   }
-  return NextResponse.json(readJson(file, file === "projects.json" ? [] : {}));
+  return NextResponse.json(await readJson(file, file === "projects.json" ? [] : {}));
 }
 
 export async function PUT(req: Request) {
@@ -29,16 +29,14 @@ export async function PUT(req: Request) {
     return NextResponse.json({ error: "Unknown file" }, { status: 400 });
   }
   try {
-    const res = writeJson(body.file, body.data);
-    return NextResponse.json(
-      res.mode === "ephemeral"
-        ? {
-            ok: true,
-            warning:
-              "Saved, but this host uses temporary storage — a redeploy or instance recycle may reset it. Export a backup from Settings.",
-          }
-        : { ok: true }
-    );
+    const res = await writeJson(body.file, body.data);
+    if (res.mode === "blob") return NextResponse.json({ ok: true, persisted: "durable" });
+    if (res.mode === "local") return NextResponse.json({ ok: true });
+    return NextResponse.json({
+      ok: true,
+      warning:
+        "Saved, but this host uses temporary storage — a redeploy or instance recycle may reset it. Add BLOB_READ_WRITE_TOKEN for durable hosted saves.",
+    });
   } catch (e) {
     return NextResponse.json(
       { error: (e as Error)?.message || "Save failed" },

@@ -5,13 +5,13 @@ import { readJson, writeJson, type Enquiry } from "@/lib/content";
 export async function GET() {
   const email = await getSessionEmail();
   if (!email) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  return NextResponse.json(readJson<Enquiry[]>("enquiries.json", []));
+  return NextResponse.json(await readJson<Enquiry[]>("enquiries.json", []));
 }
 
 export async function POST(req: Request) {
   const b = await req.json().catch(() => ({}));
   if (!b.name || !b.email) return NextResponse.json({ error: "Name and email required" }, { status: 400 });
-  const list = readJson<Enquiry[]>("enquiries.json", []);
+  const list = await readJson<Enquiry[]>("enquiries.json", []);
   const entry: Enquiry = {
     id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
     name: String(b.name).slice(0, 100),
@@ -24,7 +24,7 @@ export async function POST(req: Request) {
   };
   list.unshift(entry);
   try {
-    writeJson("enquiries.json", list);
+    await writeJson("enquiries.json", list);
   } catch (e) {
     return NextResponse.json(
       { error: (e as Error)?.message || "Could not save enquiry" },
@@ -39,9 +39,9 @@ export async function DELETE(req: Request) {
   if (!email) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
-  const list = readJson<Enquiry[]>("enquiries.json", []);
+  const list = await readJson<Enquiry[]>("enquiries.json", []);
   try {
-    writeJson("enquiries.json", id ? list.filter((e) => e.id !== id) : []);
+    await writeJson("enquiries.json", id ? list.filter((e) => e.id !== id) : []);
   } catch (e) {
     return NextResponse.json(
       { error: (e as Error)?.message || "Could not delete enquiry" },

@@ -17,7 +17,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 }
 
 export default function AdminPage() {
-  const [me, setMe] = useState<{ authenticated: boolean; email?: string } | null>(null);
+  const [me, setMe] = useState<{ authenticated: boolean; email?: string; storage?: string } | null>(null);
   const [login, setLogin] = useState({ email: "admin@sorta.company", password: "" });
   const [err, setErr] = useState("");
   const [tab, setTab] = useState<Tab>("home");
@@ -171,6 +171,9 @@ export default function AdminPage() {
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-5 py-3">
           <strong className="font-display text-sm tracking-tight"><span className="text-volt">✳</span> SORTA / STUDIO</strong>
           <span className="text-xs text-white/50">{me.email}</span>
+          <span className={`rounded-full px-2.5 py-1 text-[10px] font-black uppercase tracking-wide ${me.storage === "blob" ? "bg-volt text-black" : "bg-white/10 text-white/60"}`} title={me.storage === "blob" ? "Saves persist in Vercel Blob across redeploys" : "Local/ephemeral storage — add BLOB_READ_WRITE_TOKEN for durable hosted saves"}>
+            {me.storage === "blob" ? "● durable" : `● ${me.storage || "local"}`}
+          </span>
           <div className="ml-auto flex gap-2">
             <a href="/" target="_blank" className="rounded-full border border-white/20 px-4 py-2 text-xs font-bold transition hover:border-volt hover:text-volt">View site ↗</a>
             <button

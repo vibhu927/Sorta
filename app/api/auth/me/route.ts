@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { destroySession, getSessionEmail } from "@/lib/auth";
+import { storageMode } from "@/lib/content";
 
 export async function POST() {
   await destroySession();
@@ -8,5 +9,5 @@ export async function POST() {
 
 export async function GET() {
   const email = await getSessionEmail();
-  return NextResponse.json({ authenticated: !!email, email });
+  return NextResponse.json({ authenticated: !!email, email, storage: storageMode() });
 }

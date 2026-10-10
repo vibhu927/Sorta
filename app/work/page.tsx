@@ -7,9 +7,9 @@ import { Reveal } from "@/components/motion";
 
 export const metadata = { title: "Selected Work — Sorta Company" };
 
-export default function WorkPage() {
-  const site = readJson<any>("site.json", {});
-  const projects = readJson<Project[]>("projects.json", []);
+export default async function WorkPage() {
+  const site = await readJson<any>("site.json", {});
+  const projects = await readJson<Project[]>("projects.json", []);
   return (
     <>
       <SiteHeader site={site} />

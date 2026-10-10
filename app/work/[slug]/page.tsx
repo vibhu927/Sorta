@@ -8,8 +8,8 @@ import { Reveal, Magnetic } from "@/components/motion";
 
 export default async function WorkDetail({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const site = readJson<any>("site.json", {});
-  const projects = readJson<Project[]>("projects.json", []);
+  const site = await readJson<any>("site.json", {});
+  const projects = await readJson<Project[]>("projects.json", []);
   const p = projects.find((x) => x.slug === slug);
   if (!p) return notFound();
   const others = projects.filter((x) => x.slug !== slug).slice(0, 2);

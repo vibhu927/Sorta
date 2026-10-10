@@ -17,9 +17,9 @@ const ASTERISK = (
 
 const WORDMARK_COLORS = ["text-[#f8f5ee]", "text-hot", "text-cobalt"];
 
-export default function Home() {
-  const site = readJson<any>("site.json", {});
-  const projects = readJson<Project[]>("projects.json", []);
+export default async function Home() {
+  const site = await readJson<any>("site.json", {});
+  const projects = await readJson<Project[]>("projects.json", []);
   const featured = projects.filter((p) => p.featured !== false).slice(0, 3);
 
   const marquee = [...(site?.marquee || []), ...(site?.marquee || [])];

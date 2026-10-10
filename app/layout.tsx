@@ -7,7 +7,7 @@ const archivo = Archivo_Black({ weight: "400", subsets: ["latin"], variable: "--
 const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-sans" });
 
 export async function generateMetadata(): Promise<Metadata> {
-  const site = readJson<any>("site.json", {});
+  const site = await readJson<any>("site.json", {});
   return {
     title: site?.seo?.title || "Sorta Company — Ideas with a pulse",
     description:

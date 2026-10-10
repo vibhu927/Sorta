@@ -14,7 +14,7 @@ function secret() {
 }
 
 export async function verifyCredentials(email: string, password: string) {
-  const admin = readJson<{ email: string; passwordHash: string }>(
+  const admin = await readJson<{ email: string; passwordHash: string }>(
     "admin.json",
     { email: process.env.ADMIN_EMAIL || "", passwordHash: process.env.ADMIN_PASSWORD_HASH || "" }
   );
