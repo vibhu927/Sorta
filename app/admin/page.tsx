@@ -443,6 +443,7 @@ export default function AdminPage() {
         )}
 
         {tab === "settings" && (
+          <div className="grid gap-4">
           <div className={cardCls + " max-w-lg"}>
             <h2 className="font-display text-base uppercase tracking-tight"><span className="mr-2 text-volt">✳</span>Change password</h2>
             <div className="mt-3 grid gap-3">
@@ -456,6 +457,18 @@ export default function AdminPage() {
                 setPw({ currentPassword: "", newPassword: "" });
               }} className="rounded-full bg-volt px-6 py-2.5 text-sm font-bold text-black transition hover:brightness-110">Update password</button>
             </div>
+          </div>
+          <div className={cardCls + " max-w-2xl"}>
+            <h2 className="font-display text-base uppercase tracking-tight"><span className="mr-2 text-volt">✳</span>Connection</h2>
+            <p className="mt-1 text-xs text-white/50">Where saves go and where reads come from on this host.</p>
+            <button onClick={async () => {
+              setMsg("");
+              const r = await fetch("/api/diag");
+              const j = await r.json();
+              if (!r.ok) { setMsg(`Diagnostics failed: ${j.error || r.status}`); return; }
+              setMsg(`instance ${j.instance} · region ${j.region} · storage ${j.storage} · reads: ${j.siteSource} · blob files: ${Array.isArray(j.blobFiles) ? j.blobFiles.map((b: any) => b.pathname).join(", ") || "none yet" : JSON.stringify(j.blobFiles)}`);
+            }} className="mt-3 rounded-full border border-white/20 px-5 py-2 text-xs font-bold transition hover:border-volt hover:text-volt">Run diagnostics</button>
+          </div>
           </div>
         )}
       </div>
