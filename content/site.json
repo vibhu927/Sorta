@@ -1,0 +1,104 @@
+{
+  "nav": {
+    "logo": "SORTA.",
+    "links": [
+      { "label": "About", "href": "#about" },
+      { "label": "What we do", "href": "#services" },
+      { "label": "The work", "href": "#work" },
+      { "label": "How we work", "href": "#process" }
+    ],
+    "cta": { "label": "Let's talk", "href": "#contact" }
+  },
+  "hero": {
+    "eyebrow": "Independent creative company. Internet people with outside voices.",
+    "titleA": "IDEAS WITH",
+    "titleB": "A PULSE.",
+    "sub": "We make brands, digital things and culture with a little more life in them.",
+    "primaryCta": { "label": "Let's make something", "href": "#contact" },
+    "secondaryCta": { "label": "Get into the work", "href": "#work" },
+    "image": "/images/sorta-project-neon.jpg",
+    "imageAlt": "Pink sculptural ribbon and neon green glass against saturated blue",
+    "scrollHint": "Scroll to selected work"
+  },
+  "statement": {
+    "line1": "Not your usual anything",
+    "line2": "MORE FEELING. LESS FILLER.",
+    "code": "Strategy / Identity / Digital / Culture · SC—001 · 2026"
+  },
+  "marquee": ["DESIGN", "BUILD", "BRAND", "GROW", "CREATE", "CULTURE", "MAKE A SCENE"],
+  "about": {
+    "index": "01 — Well, hello",
+    "kicker": "Small enough to care. Big enough to make a proper dent.",
+    "title": "A creative company for people with outside voices.",
+    "paragraphs": [
+      "We connect the dots between strategy, design, technology and the bits of culture you can't put in a brief.",
+      "Then we make things with a point of view. The kind of things that feel like you—and mean something to the people you're here for.",
+      "Not louder for the sake of it. Just more you."
+    ]
+  },
+  "services": {
+    "index": "02 — Our kind of thing",
+    "title": "THE WHOLE PICTURE.",
+    "sub": "One close-knit team. Every bit of your brand working harder together.",
+    "footer": "Need a little of everything? That's kind of our thing.",
+    "items": [
+      { "id": "ui-ux", "n": "01", "title": "UI / UX", "desc": "Digital products people actually want to spend time with." },
+      { "id": "development", "n": "02", "title": "Development", "desc": "Fast, thoughtful builds. The details are the difference." },
+      { "id": "marketing", "n": "03", "title": "Marketing", "desc": "Clear thinking, good timing, and the right kind of noise." },
+      { "id": "branding", "n": "04", "title": "Branding", "desc": "A distinct point of view, built to work everywhere." },
+      { "id": "social", "n": "05", "title": "Social media", "desc": "Culture-first content that never feels like content." },
+      { "id": "ads", "n": "06", "title": "Paid ads", "desc": "Creative that earns the click and gives it somewhere to go." },
+      { "id": "creators", "n": "07", "title": "Creator management", "desc": "The right people, with the freedom to make something matter." }
+    ]
+  },
+  "workPreview": {
+    "index": "03 — A few good things",
+    "title": "SELECTED MATTERS.",
+    "sub": "Small preview, big main-character energy.",
+    "allLabel": "All projects"
+  },
+  "process": {
+    "index": "04 — Good work, good people",
+    "title": "GOOD IDEAS HAVE A WAY.",
+    "sub": "No mystery process. No fifty-page deck. Just good people making thoughtful moves.",
+    "steps": [
+      { "n": "01", "title": "Discover", "desc": "We listen first. Goals, audience, gut feelings — all of it." },
+      { "n": "02", "title": "Strategize", "desc": "A sharp point of view before a single pixel." },
+      { "n": "03", "title": "Design", "desc": "Identity, interface and art direction with feeling." },
+      { "n": "04", "title": "Build", "desc": "Fast, clean development. No bloat, no drama." },
+      { "n": "05", "title": "Launch", "desc": "Shipped with noise in all the right places." },
+      { "n": "06", "title": "Grow", "desc": "Content, creators and ads that keep it alive." }
+    ]
+  },
+  "clients": {
+    "index": "05 — Nice to meet you",
+    "title": "GOOD COMPANY.",
+    "sub": "Made with curious people. A few projects, brands and voices we've been lucky enough to meet.",
+    "logos": ["SOFT SIGNAL", "SIDEQUEST", "LUMA STUDIO", "GOOD FORM", "OTHER PEOPLE"],
+    "testimonial": {
+      "quote": "They got what we were trying to say before we found the words for it. Then they made it impossible to miss.",
+      "name": "Avery Chen",
+      "role": "Founder, Soft Signal"
+    }
+  },
+  "contact": {
+    "index": "06 — Over to you",
+    "title": "YOUR MOVE.",
+    "sub": "Got a good one? A weird one? An “I can't stop thinking about this” one?",
+    "email": "hello@sorta.company",
+    "needs": ["UI / UX", "Development", "Marketing", "Branding", "Social media", "Paid ads", "Creator management", "Something else"],
+    "budgets": ["Let's talk first", "Under $5k", "$5k–$15k", "$15k–$50k", "$50k+"],
+    "note": "No bots. We read every one.",
+    "success": "Love it. We'll read every word and get back within 2 working days."
+  },
+  "footer": {
+    "brand": "✳ SORTA COMPANY © 2026",
+    "tagline": "Ideas with a pulse. Made with good people.",
+    "email": "hello@sorta.company",
+    "adminLabel": "Admin"
+  },
+  "seo": {
+    "title": "Sorta Company — Ideas with a pulse",
+    "description": "Sorta is an independent creative company building brands, digital experiences and culture with outside voices."
+  }
+}

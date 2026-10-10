@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "colour-theory",
+    "title": "A little more colour.",
+    "client": "Luma Studio",
+    "category": "Branding",
+    "type": "Brand campaign",
+    "description": "An electric new identity for the ones who never blend in.",
+    "long": "Luma Studio came to us with great work and a quiet brand. We gave them an identity with the volume turned up — colour-first system, playful type, and a campaign toolkit their whole team actually uses.",
+    "image": "/images/sorta-project-neon.jpg",
+    "imageAlt": "A little more colour. — Brand campaign visual",
+    "featured": true
+  },
+  {
+    "slug": "soft-signal",
+    "title": "Good skin. No small talk.",
+    "client": "Soft Signal",
+    "category": "Marketing",
+    "type": "Product campaign",
+    "description": "Skincare for your actual life. A clean shelf, a louder point of view.",
+    "long": "Soft Signal needed a launch that cut through a crowded shelf. Strategy, packaging direction, landing page and paid social — one coherent story from shelf to scroll.",
+    "image": "/images/sorta-project-skin.jpg",
+    "imageAlt": "Good skin. No small talk. — Product campaign visual",
+    "featured": true
+  },
+  {
+    "slug": "outside-voices",
+    "title": "Made for outside voices.",
+    "client": "Sidequest",
+    "category": "Creators",
+    "type": "Creator campaign",
+    "description": "A new-generation creator campaign with nowhere to stand still.",
+    "long": "Sidequest is a platform for the chronically curious. We cast 12 outside voices, gave them real freedom, and built a content engine that outlived the launch week.",
+    "image": "/images/sorta-project-culture.jpg",
+    "imageAlt": "Made for outside voices. — Creator campaign visual",
+    "featured": true
+  }
+]
