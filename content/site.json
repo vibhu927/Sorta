@@ -81,8 +81,40 @@
       "role": "Founder, Soft Signal"
     }
   },
+  "clientVoices": {
+    "index": "06 — Straight from them",
+    "titleA": "STRAIGHT",
+    "titleB": "FROM THEM.",
+    "sub": "No scripts. No polish. Just clients saying it in their own words — hit play.",
+    "items": [
+      {
+        "id": "v-avery",
+        "name": "Avery Chen",
+        "role": "Founder, Soft Signal",
+        "quote": "They got what we were trying to say before we found the words for it.",
+        "videoUrl": "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        "poster": "/images/sorta-project-neon.jpg"
+      },
+      {
+        "id": "v-maya",
+        "name": "Maya Rao",
+        "role": "CMO, Luma Studio",
+        "quote": "It never felt like an agency. It felt like our own team with better taste.",
+        "videoUrl": "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        "poster": "/images/sorta-project-culture.jpg"
+      },
+      {
+        "id": "v-jonas",
+        "name": "Jonas Beck",
+        "role": "Founder, Good Form",
+        "quote": "We shipped in weeks and people noticed on day one.",
+        "videoUrl": "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+        "poster": "/images/sorta-project-skin.jpg"
+      }
+    ]
+  },
   "contact": {
-    "index": "06 — Over to you",
+    "index": "07 — Over to you",
     "title": "YOUR MOVE.",
     "sub": "Got a good one? A weird one? An “I can't stop thinking about this” one?",
     "email": "hello@sorta.company",

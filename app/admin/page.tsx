@@ -393,6 +393,71 @@ export default function AdminPage() {
               </div>
               <button onClick={saveSite} disabled={saving} className="mt-4 rounded-full bg-volt px-8 py-2.5 text-sm font-bold text-black transition hover:brightness-110">Save sections</button>
             </div>
+            <div className={cardCls + " md:col-span-2"}>
+              <h2 className="font-display text-base uppercase tracking-tight"><span className="mr-2 text-volt">✳</span>Client videos — carousel</h2>
+              <p className="mt-1 text-xs text-white/50">Paste a YouTube link (watch / shorts / youtu.be) or a direct .mp4 URL. Poster is the cover image.</p>
+              <div className="mt-3 grid gap-3">
+                <div className="grid gap-3 md:grid-cols-2">
+                  <Field label="Section eyebrow"><input className={inputCls} value={site.clientVoices?.index || ""} onChange={(e) => set("clientVoices.index", e.target.value)} /></Field>
+                  <Field label="Section sub"><input className={inputCls} value={site.clientVoices?.sub || ""} onChange={(e) => set("clientVoices.sub", e.target.value)} /></Field>
+                </div>
+                {(site.clientVoices?.items || []).map((v: any, i: number) => (
+                  <div key={v.id || i} className="grid gap-3 rounded-2xl border border-white/10 p-4 md:grid-cols-2">
+                    <Field label="Name"><input className={inputCls} value={v.name || ""} onChange={(e) => {
+                      const n = structuredClone(site); n.clientVoices.items[i].name = e.target.value; setSite(n);
+                    }} /></Field>
+                    <Field label="Role / company"><input className={inputCls} value={v.role || ""} onChange={(e) => {
+                      const n = structuredClone(site); n.clientVoices.items[i].role = e.target.value; setSite(n);
+                    }} /></Field>
+                    <div className="md:col-span-2">
+                      <Field label="Video URL (YouTube or .mp4)"><input className={inputCls} placeholder="https://youtube.com/watch?v=… or https://…/clip.mp4" value={v.videoUrl || ""} onChange={(e) => {
+                        const n = structuredClone(site); n.clientVoices.items[i].videoUrl = e.target.value; setSite(n);
+                      }} /></Field>
+                    </div>
+                    <div className="md:col-span-2">
+                      <Field label="Poster / cover image">
+                        <div className="flex gap-2">
+                          <input className={inputCls} value={v.poster || ""} onChange={(e) => {
+                            const n = structuredClone(site); n.clientVoices.items[i].poster = e.target.value; setSite(n);
+                          }} />
+                          <label className="cursor-pointer whitespace-nowrap rounded-xl bg-volt px-3 py-2 text-xs font-bold text-black transition hover:brightness-110">
+                            Upload
+                            <input type="file" className="hidden" accept="image/*" onChange={async (e) => {
+                              const f = e.target.files?.[0];
+                              if (!f) return;
+                              const url = await uploadImage(f);
+                              if (url) { const n = structuredClone(site); n.clientVoices.items[i].poster = url; setSite(n); }
+                            }} />
+                          </label>
+                        </div>
+                      </Field>
+                    </div>
+                    <div className="md:col-span-2">
+                      <Field label="Quote (short line under video)"><textarea className={inputCls} value={v.quote || ""} onChange={(e) => {
+                        const n = structuredClone(site); n.clientVoices.items[i].quote = e.target.value; setSite(n);
+                      }} /></Field>
+                    </div>
+                    <div className="md:col-span-2">
+                      <button onClick={() => {
+                        const n = structuredClone(site);
+                        n.clientVoices.items.splice(i, 1);
+                        setSite(n);
+                      }} className="rounded-full border border-hot/50 px-4 py-2 text-xs font-bold text-hot transition hover:bg-hot hover:text-black">Delete video</button>
+                    </div>
+                  </div>
+                ))}
+                <div className="flex flex-wrap gap-2">
+                  <button onClick={() => {
+                    const n = structuredClone(site);
+                    if (!n.clientVoices) n.clientVoices = { index: "06 — Straight from them", sub: "", items: [] };
+                    if (!Array.isArray(n.clientVoices.items)) n.clientVoices.items = [];
+                    n.clientVoices.items.push({ id: `v-${Date.now()}`, name: "New client", role: "Founder", quote: "", videoUrl: "", poster: "/images/sorta-project-neon.jpg" });
+                    setSite(n);
+                  }} className="rounded-full border border-white/20 px-5 py-2.5 text-sm font-bold transition hover:border-volt hover:text-volt">+ Add video</button>
+                  <button onClick={saveSite} disabled={saving} className="rounded-full bg-volt px-8 py-2.5 text-sm font-bold text-black transition hover:brightness-110">Save videos</button>
+                </div>
+              </div>
+            </div>
           </div>
         )}
 

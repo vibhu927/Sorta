@@ -154,6 +154,14 @@ select.input-field option {
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s;
 }
 
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .grain::after {
   content: "";
   position: absolute;

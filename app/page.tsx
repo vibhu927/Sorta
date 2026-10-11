@@ -5,6 +5,7 @@ export const dynamic = "force-dynamic";
 import { SiteHeader, SiteFooter } from "@/components/SiteChrome";
 import { ContactForm } from "@/components/ContactForm";
 import { ServicesAccordion } from "@/components/ServicesAccordion";
+import { ClientVoices } from "@/components/ClientVoices";
 import { Reveal, Magnetic } from "@/components/motion";
 
 const ASTERISK = (
@@ -296,6 +297,31 @@ export default async function Home() {
             </div>
           </Reveal>
         </section>
+
+        {/* CLIENT VIDEOS */}
+        {(site?.clientVoices?.items || []).length > 0 && (
+          <section id="voices" className="scroll-mt-24 border-t border-white/10 bg-card/50 py-24 sm:py-32">
+            <div className="section-wrap">
+              <Reveal>
+                <div className="flex flex-wrap items-end justify-between gap-6">
+                  <div>
+                    <p className="eyebrow text-volt">{site?.clientVoices?.index || "06 — Straight from them"}</p>
+                    <h2 className="display-type mt-5 text-5xl sm:text-7xl">
+                      {site?.clientVoices?.titleA || "STRAIGHT"}<br />
+                      {site?.clientVoices?.titleB || "FROM THEM."}
+                    </h2>
+                  </div>
+                  <p className="max-w-xs text-sm leading-relaxed text-white/55">{site?.clientVoices?.sub}</p>
+                </div>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <div className="mt-12">
+                  <ClientVoices items={site.clientVoices.items} />
+                </div>
+              </Reveal>
+            </div>
+          </section>
+        )}
 
         {/* TESTIMONIAL */}
         {site?.clients?.testimonial && (
